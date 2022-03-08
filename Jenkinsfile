@@ -11,10 +11,12 @@ pipeline {
             steps {
                 sh 'mvn --batch-mode -V -U -e checkstyle:checkstyle pmd:pmd pmd:cpd findbugs:findbugs spotbugs:spotbugs'
             }
+            
         }
         stage('Test') {
             steps {
                 sh 'mvn test'
+                step( [ $class: 'JacocoPublisher' ]
             }
             
         }
