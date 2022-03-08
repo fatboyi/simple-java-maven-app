@@ -16,7 +16,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'mvn test'
-                step( [ $class: 'JacocoPublisher' ]
+                step( [ $class: 'JacocoPublisher' ])
             }
             
         }
